@@ -1,4 +1,4 @@
-# react-nestjs-auth-app
+# react-nestjs-auth-app(React Part)
 A simple application made in react, nestjs and mysql for authenticating user.
 
 
