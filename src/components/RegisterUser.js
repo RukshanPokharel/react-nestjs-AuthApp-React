@@ -9,18 +9,18 @@ const baseUrl = "http://localhost:3333/auth/register";
 const RegisterUser = () => {
   const navigate = useNavigate(); // for routing
 
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
-  const [phoneNo, setPhoneNo] = useState(0);
+  const [phone_no, setPhoneNo] = useState(0);
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
     const registerData = {
-      username: userName,
+      username: username,
       password: password,
       address: address,
-      phone_no: phoneNo,
+      phone_no: phone_no,
     };
 
     // submitting data to api for registering user
@@ -72,7 +72,7 @@ const RegisterUser = () => {
                 type="text"
                 className="form-control"
                 placeholder="Name"
-                value={userName}
+                value={username}
                 onChange={usernameChangeHandler}
               ></input>
 
@@ -101,7 +101,7 @@ const RegisterUser = () => {
                 // min="99999999"
                 // max="99999999"
                 placeholder="Contact Number"
-                value={phoneNo}
+                value={phone_no}
                 onChange={phoneNoChangeHandler}
               ></input>
               <button type="submit" className="btn btn-primary mt-3">
