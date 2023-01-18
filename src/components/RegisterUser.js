@@ -1,13 +1,13 @@
 import { useState } from "react";
 import React from "react";
-import Login from "./Login";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// backend api endpoint for register..
 const baseUrl = "http://localhost:3333/auth/register";
 
 const RegisterUser = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // for routing
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -23,7 +23,7 @@ const RegisterUser = () => {
       phone_no: phoneNo,
     };
 
-    // submitting data to api
+    // submitting data to api for registering user
     axios
       .post(baseUrl, registerData)
       .then((response) => {
@@ -31,6 +31,7 @@ const RegisterUser = () => {
       })
       .catch((err) => {
         console.log(err);
+        alert("error in registering");
       });
 
     console.log(registerData);
@@ -56,8 +57,6 @@ const RegisterUser = () => {
     setPhoneNo(event.target.value);
   };
 
-  // navigating to login page
-  const loginHandler = () => {};
   return (
     <>
       <div className="container-lg">
@@ -66,6 +65,7 @@ const RegisterUser = () => {
         </div>
         <div className="row justify-content-center">
           <div className="col-lg-6">
+            {/* submit form starts */}
             <form onSubmit={formSubmitHandler}>
               <label className="form-label">Username</label>
               <input

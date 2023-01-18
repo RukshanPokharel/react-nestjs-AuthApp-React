@@ -3,10 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
+// backend api endpoint for login..
 const baseUrl = "http://localhost:3333/auth/login";
 
 const Login = (props) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // for routing
 
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -20,12 +21,11 @@ const Login = (props) => {
 
     console.log(loginData);
 
-    // submitting data to api
+    // submitting data to api using axios
     axios
       .post(baseUrl, loginData)
       .then((response) => {
-        console.log(response.data);
-        console.log(response.status);
+        // console.log(response.data);
         const responseData = response.data;
         if (responseData.id !== 0) {
           alert("login success");
@@ -47,8 +47,6 @@ const Login = (props) => {
     setPassword(event.target.value);
   };
 
-  // navigating to login page
-  const registerHandler = () => {};
   return (
     <>
       <div className="container-lg">
